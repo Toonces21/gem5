@@ -18,3 +18,4 @@ m5out
 /util/tap/m5tap
 /util/term/m5term
 /system/arm/dt/*.dtb
+/test_cache_bank/test
