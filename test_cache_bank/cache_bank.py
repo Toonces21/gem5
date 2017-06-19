@@ -67,11 +67,15 @@ system.mem_ctrl.port = system.membus.master
 
 #Create a process to run TODO: Need two of these
 
-for i in range(2):
-    process = Process()
-    process.cmd = [binary]
-    system.cpu.workload = process
-    system.cpu.createThreads()
+process = Process()
+process.cmd = [binary]
+system.cpu.workload = process
+system.cpu.createThreads()
+
+process2 = Process()
+process2.cmd = [binary]
+system.cpu.workload = process2
+system.cpu.createThreads()
 
 #Set up the root SimObject and start the simulation
 root = Root(full_system = False, system = system)

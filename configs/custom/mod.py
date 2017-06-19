@@ -78,6 +78,8 @@ def get_processes(options):
     outputs = []
     errouts = []
     pargs = []
+    #Set ID for first process to be 100
+    currentProcessID = 100
 
     workloads = options.cmd.split(';')
     if options.input != "":
@@ -94,7 +96,9 @@ def get_processes(options):
         process = Process()
         process.executable = wrkld
         process.cwd = os.getcwd()
-
+        process.pid = currentProcessID;
+        #Increment PID for next process
+        currentProcessID += 1;
         if options.env:
             with open(options.env, 'r') as f:
                 process.env = [line.rstrip() for line in f]
